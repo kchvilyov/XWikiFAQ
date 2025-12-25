@@ -4,12 +4,12 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/faqdb
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/faqdb
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
       # Важно: включаем выполнение Liquibase при старте
       SPRING_LIQUIBASE_ENABLED: "true"
-      SPRING_LIQUIBASE_CHANGE-LOG: classpath:db/changelog/db.changelog-master.xml
+      SPRING_LIQUIBASE_CHANGE_LOG: classpath:db/changelog/db.changelog-master.xml
     depends_on:
       postgres:
         condition: service_healthy
